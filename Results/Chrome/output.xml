@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.14 on darwin)" generated="20220922 15:54:19.417" rpa="false" schemaversion="3">
+<suite id="s1" name="Find A Dealer" source="/Users/shubhamr/Downloads/POC/rf-tests/Find A Dealer.robot">
+<kw name="Launch Application Using" library="Functional" type="SETUP">
+<doc>Keyword to Launch Website</doc>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20220922 15:54:19.516" endtime="20220922 15:54:19.517"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>browser=${BROWSER}</arg>
+<arg>remote_url=${REMOTE_URL}</arg>
+<arg>desired_capabilities=${CAPABILITIES}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220922 15:54:19.517" level="INFO">Opening browser 'chrome' to base url 'https://www.lundboats.com/' through remote server at 'http://shubhamr:CCCCTfelp95y0WKq0MSKORBzWD7xpFGOTv5KlMTZ18qnAcGjId@hub.lambdatest.com/wd/hub'.</msg>
+<status status="PASS" starttime="20220922 15:54:19.517" endtime="20220922 15:54:28.717"/>
+</kw>
+<kw name="Set Window Position" library="SeleniumLibrary">
+<arg>0</arg>
+<arg>0</arg>
+<doc>Sets window position using ``x`` and ``y`` coordinates.</doc>
+<status status="PASS" starttime="20220922 15:54:28.717" endtime="20220922 15:54:29.266"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1024</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220922 15:54:29.267" endtime="20220922 15:54:29.784"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${HOME PAGE TITLE}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220922 15:54:35.894" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220922 15:54:30.192" endtime="20220922 15:54:35.894"/>
+</kw>
+<msg timestamp="20220922 15:54:35.895" level="FAIL">Title should have been 'LUND® Aluminum Fishing Boats-For Anglers and FamiliesTest' but was 'LUND® Aluminum Fishing Boats-For Anglers and Families'.</msg>
+<status status="FAIL" starttime="20220922 15:54:29.784" endtime="20220922 15:54:35.898"/>
+</kw>
+<status status="FAIL" starttime="20220922 15:54:29.784" endtime="20220922 15:54:35.898"/>
+</branch>
+<branch type="EXCEPT" variable="${error_message}">
+<kw name="Set Variable" library="BuiltIn">
+<var>${e}</var>
+<arg>${error_message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220922 15:54:35.899" level="INFO">${e} = Title should have been 'LUND® Aluminum Fishing Boats-For Anglers and FamiliesTest' but was 'LUND® Aluminum Fishing Boats-For Anglers and Families'.</msg>
+<status status="PASS" starttime="20220922 15:54:35.898" endtime="20220922 15:54:35.899"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${e}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220922 15:54:35.899" endtime="20220922 15:54:35.899"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{exceptions}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220922 15:54:35.899" level="INFO">@{exceptions} = [ ]</msg>
+<status status="PASS" starttime="20220922 15:54:35.899" endtime="20220922 15:54:35.899"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${exceptions}</arg>
+<arg>${e}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220922 15:54:35.899" endtime="20220922 15:54:35.899"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${exceptions}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220922 15:54:35.899" endtime="20220922 15:54:35.900"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>lambda-exceptions</arg>
+<arg>ARGUMENTS</arg>
+<arg>${exceptions}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220922 15:54:35.900" level="INFO">Executing JavaScript:
+lambda-exceptions
+By using argument:
+'["Title should have been 'LUND® Aluminum Fishing Boats-For Anglers and FamiliesTest' but was 'LUND® Aluminum Fishing Boats-For Anglers and Families'."]'</msg>
+<status status="PASS" starttime="20220922 15:54:35.900" endtime="20220922 15:54:37.911"/>
+</kw>
+<status status="PASS" starttime="20220922 15:54:35.898" endtime="20220922 15:54:37.911"/>
+</branch>
+<status status="PASS" starttime="20220922 15:54:29.784" endtime="20220922 15:54:37.911"/>
+</try>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220922 15:54:43.156" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220922 15:54:37.912" endtime="20220922 15:54:43.156"/>
+</kw>
+<status status="PASS" starttime="20220922 15:54:19.516" endtime="20220922 15:54:43.156"/>
+</kw>
+<test id="s1-t1" name="Dealer Search Should Contain All Valid Countries" line="9">
+<kw name="Navigate To Home Page" library="Functional" type="SETUP">
+<doc>Keyword to Navigate to Homepage by clicking on Logo</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${HOME PAGE LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220922 15:54:43.158" level="INFO">Clicking element 'xpath=//a[@title="Lund Boats"]'.</msg>
+<status status="PASS" starttime="20220922 15:54:43.158" endtime="20220922 15:54:45.650"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${HOME PAGE TITLE}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220922 15:54:51.243" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220922 15:54:46.057" endtime="20220922 15:54:51.243"/>
+</kw>
+<msg timestamp="20220922 15:54:51.243" level="FAIL">Title should have been 'LUND® Aluminum Fishing Boats-For Anglers and FamiliesTest' but was 'LUND® Aluminum Fishing Boats-For Anglers and Families'.</msg>
+<status status="FAIL" starttime="20220922 15:54:45.651" endtime="20220922 15:54:51.243"/>
+</kw>
+<status status="FAIL" starttime="20220922 15:54:45.651" endtime="20220922 15:54:51.243"/>
+</branch>
+<branch type="EXCEPT" variable="${error_message}">
+<kw name="Set Variable" library="BuiltIn">
+<var>${e}</var>
+<arg>${error_message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220922 15:54:51.243" level="INFO">${e} = Title should have been 'LUND® Aluminum Fishing Boats-For Anglers and FamiliesTest' but was 'LUND® Aluminum Fishing Boats-For Anglers and Families'.</msg>
+<status status="PASS" starttime="20220922 15:54:51.243" endtime="20220922 15:54:51.243"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${e}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220922 15:54:51.243" endtime="20220922 15:54:51.244"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{exceptions}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220922 15:54:51.244" level="INFO">@{exceptions} = [ ]</msg>
+<status status="PASS" starttime="20220922 15:54:51.244" endtime="20220922 15:54:51.244"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${exceptions}</arg>
+<arg>${e}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220922 15:54:51.244" endtime="20220922 15:54:51.244"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${exceptions}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220922 15:54:51.244" endtime="20220922 15:54:51.244"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>lambda-exceptions</arg>
+<arg>ARGUMENTS</arg>
+<arg>${exceptions}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220922 15:54:51.245" level="INFO">Executing JavaScript:
+lambda-exceptions
+By using argument:
+'["Title should have been 'LUND® Aluminum Fishing Boats-For Anglers and FamiliesTest' but was 'LUND® Aluminum Fishing Boats-For Anglers and Families'."]'</msg>
+<status status="PASS" starttime="20220922 15:54:51.244" endtime="20220922 15:54:52.034"/>
+</kw>
+<status status="PASS" starttime="20220922 15:54:51.243" endtime="20220922 15:54:52.034"/>
+</branch>
+<status status="PASS" starttime="20220922 15:54:45.651" endtime="20220922 15:54:52.034"/>
+</try>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220922 15:54:56.929" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220922 15:54:52.035" endtime="20220922 15:54:56.929"/>
+</kw>
+<status status="PASS" starttime="20220922 15:54:43.158" endtime="20220922 15:54:56.929"/>
+</kw>
+<kw name="Navigate To Dealer Search" library="Functional">
+<doc>Keyword to Click on Dealer Search on Top Left area</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${FIND A DELAER BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220922 15:54:56.929" level="INFO">Clicking element 'xpath=(//a[normalize-space(text())='Find a Dealer'])[2]'.</msg>
+<status status="PASS" starttime="20220922 15:54:56.929" endtime="20220922 15:54:58.518"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220922 15:55:03.694" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220922 15:54:58.519" endtime="20220922 15:55:03.694"/>
+</kw>
+<status status="PASS" starttime="20220922 15:54:56.929" endtime="20220922 15:55:03.694"/>
+</kw>
+<kw name="Dealer Countries Should Contain" library="Functional">
+<arg>USA</arg>
+<arg>Canada</arg>
+<arg>Russia</arg>
+<arg>Netherlands</arg>
+<doc>Keyword to verify the Dealer country list</doc>
+<kw name="Get List Items" library="SeleniumLibrary">
+<var>${Actual Country List}</var>
+<arg>${DEALER COUNTRY LIST}</arg>
+<doc>Returns all labels or values of selection list ``locator``.</doc>
+<msg timestamp="20220922 15:55:09.295" level="INFO">${Actual Country List} = ['USA', 'Canada', 'Russia', 'Netherlands']</msg>
+<status status="PASS" starttime="20220922 15:55:03.695" endtime="20220922 15:55:09.295"/>
+</kw>
+<kw name="Lists Should Be Equal" library="Collections">
+<arg>${Country List}</arg>
+<arg>${Actual Country List}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" starttime="20220922 15:55:09.295" endtime="20220922 15:55:09.296"/>
+</kw>
+<status status="PASS" starttime="20220922 15:55:03.694" endtime="20220922 15:55:09.297"/>
+</kw>
+<kw name="Search For A Dealer" library="Functional">
+<arg>USA</arg>
+<arg>60007</arg>
+<doc>Keyword to Search for a Dealer by Address</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${DEALER COUNTRY LIST}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220922 15:55:09.298" endtime="20220922 15:55:11.731"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${DEALER COUNTRY LIST}</arg>
+<arg>${Country}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220922 15:55:11.731" level="INFO">Selecting options from selection list 'xpath=//select[@id="ln-ctry-code"]' by label USA.</msg>
+<status status="PASS" starttime="20220922 15:55:11.731" endtime="20220922 15:55:14.350"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${DEALER ADDRESS TEXT}</arg>
+<arg>${Address}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220922 15:55:14.352" level="INFO">Typing text '60007' into text field 'xpath=//input[@id="inputFindDealer"]'.</msg>
+<status status="PASS" starttime="20220922 15:55:14.351" endtime="20220922 15:55:16.574"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220922 15:55:21.402" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220922 15:55:16.574" endtime="20220922 15:55:21.402"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DEALER SEARCH ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220922 15:55:21.403" level="INFO">Clicking element 'xpath=//span[contains(@class,'js-dealersearch')]'.</msg>
+<status status="PASS" starttime="20220922 15:55:21.402" endtime="20220922 15:55:26.611"/>
+</kw>
+<status status="PASS" starttime="20220922 15:55:09.297" endtime="20220922 15:55:26.612"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Dealer Count Should Be" library="Functional">
+<arg>20</arg>
+<doc>Keyword to verify the Dealer search result count</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${DELAER SEARCH PAGE TITLE}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220922 15:55:27.433" level="INFO">Page title is 'Lund Boat Dealers Near Me: Fishing, Bass Jon, Crappie Dealerships'.</msg>
+<status status="PASS" starttime="20220922 15:55:26.614" endtime="20220922 15:55:27.433"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${FILTER BY BOAT TYPE LIST}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220922 15:55:27.433" endtime="20220922 15:55:31.990"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Actual Count}</var>
+<arg>${DEALER SEARCH RESULTS}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220922 15:55:32.817" level="INFO">${Actual Count} = 25</msg>
+<status status="PASS" starttime="20220922 15:55:31.990" endtime="20220922 15:55:32.817"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>15s</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20220922 15:55:32.818" endtime="20220922 15:55:33.399"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${Count}</arg>
+<arg>${Actual Count}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20220922 15:55:33.400" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<msg timestamp="20220922 15:55:33.401" level="FAIL">20 != 25</msg>
+<status status="FAIL" starttime="20220922 15:55:33.399" endtime="20220922 15:55:33.402"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220922 15:55:36.206" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220922 15:55:33.403" endtime="20220922 15:55:36.209"/>
+</kw>
+<status status="FAIL" starttime="20220922 15:55:26.613" endtime="20220922 15:55:36.210"/>
+</kw>
+<status status="FAIL" starttime="20220922 15:55:26.612" endtime="20220922 15:55:36.211"/>
+</branch>
+<branch type="EXCEPT" variable="${error_message}">
+<kw name="Set Variable" library="BuiltIn">
+<var>${e}</var>
+<arg>${error_message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220922 15:55:36.212" level="INFO">${e} = 20 != 25</msg>
+<status status="PASS" starttime="20220922 15:55:36.211" endtime="20220922 15:55:36.212"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${a}</var>
+<arg>I am the ironMan</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220922 15:55:36.212" level="INFO">${a} = I am the ironMan</msg>
+<status status="PASS" starttime="20220922 15:55:36.212" endtime="20220922 15:55:36.212"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${e}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220922 15:55:36.213" endtime="20220922 15:55:36.213"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{exceptions}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220922 15:55:36.213" level="INFO">@{exceptions} = [ ]</msg>
+<status status="PASS" starttime="20220922 15:55:36.213" endtime="20220922 15:55:36.213"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${exceptions}</arg>
+<arg>${e}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220922 15:55:36.213" endtime="20220922 15:55:36.214"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${exceptions}</arg>
+<arg>${a}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220922 15:55:36.214" endtime="20220922 15:55:36.214"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${exceptions}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220922 15:55:36.214" endtime="20220922 15:55:36.215"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>This -----is------ the------- Exceptions</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220922 15:55:36.215" endtime="20220922 15:55:36.215"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>lambda-exceptions</arg>
+<arg>ARGUMENTS</arg>
+<arg>${exceptions}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20220922 15:55:36.217" level="INFO">Executing JavaScript:
+lambda-exceptions
+By using argument:
+'['20 != 25', 'I am the ironMan']'</msg>
+<status status="PASS" starttime="20220922 15:55:36.215" endtime="20220922 15:55:37.168"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${TEST_STATUS}</arg>
+<doc>Logs the given message to the console.</doc>
+<msg timestamp="20220922 15:55:37.170" level="FAIL">Variable '${TEST_STATUS}' not found. Did you mean:
+    ${PREV_TEST_STATUS}</msg>
+<status status="FAIL" starttime="20220922 15:55:37.168" endtime="20220922 15:55:37.170"/>
+</kw>
+<status status="FAIL" starttime="20220922 15:55:36.211" endtime="20220922 15:55:37.170"/>
+</branch>
+<status status="FAIL" starttime="20220922 15:55:26.612" endtime="20220922 15:55:37.170"/>
+</try>
+<kw name="Close Application" library="Functional" type="TEARDOWN">
+<doc>Keyword to close all browsers</doc>
+<kw name="Report Lambdatest Status" library="LambdaTestStatus">
+<arg>${TEST NAME}</arg>
+<arg>${TEST STATUS}</arg>
+<msg timestamp="20220922 15:55:37.172" level="INFO">Executing JavaScript:
+lambda-status=failed
+Without any arguments.</msg>
+<msg timestamp="20220922 15:55:38.817" level="INFO">Executing JavaScript:
+lambda-name=Dealer Search Should Contain All Valid Countries
+Without any arguments.</msg>
+<status status="PASS" starttime="20220922 15:55:37.171" endtime="20220922 15:55:40.467"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20220922 15:55:40.467" endtime="20220922 15:55:40.912"/>
+</kw>
+<status status="PASS" starttime="20220922 15:55:37.171" endtime="20220922 15:55:40.912"/>
+</kw>
+<doc>Test Case to verify all valid countries are displayed in Dealer Search dropdown</doc>
+<tag>Dealer Search</tag>
+<tag>Functional</tag>
+<tag>Smoke</tag>
+<status status="FAIL" starttime="20220922 15:54:43.157" endtime="20220922 15:55:40.912">Variable '${TEST_STATUS}' not found. Did you mean:
+    ${PREV_TEST_STATUS}</status>
+</test>
+<doc>Test suite for Dealer Search</doc>
+<status status="FAIL" starttime="20220922 15:54:19.417" endtime="20220922 15:55:40.914"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Dealer Search</stat>
+<stat pass="0" fail="1" skip="0">Functional</stat>
+<stat pass="0" fail="1" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Find A Dealer">Find A Dealer</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

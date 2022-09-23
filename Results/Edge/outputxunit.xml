@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Find A Dealer" tests="1" errors="0" failures="1" skipped="0" time="83.114" timestamp="2022-09-23T15:03:52.654000">
+<testcase classname="Find A Dealer" name="Dealer Search Should Contain All Valid Countries" time="56.849">
+<failure message="Variable '${TEST_STATUS}' not found. Did you mean:&#10;    ${PREV_TEST_STATUS}" type="AssertionError"/>
+</testcase>
+<properties>
+<property name="Documentation" value="Test suite for Dealer Search"/>
+</properties>
+</testsuite>
